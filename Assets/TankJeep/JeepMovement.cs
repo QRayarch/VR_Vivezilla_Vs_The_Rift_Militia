@@ -29,33 +29,55 @@ public class JeepMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         bool reverse = false;
-        if (Input.anyKey && onGround) {
-            Vector3 target = rb.velocity;
-            if (Input.GetKey(KeyCode.W)) {
-                target += transform.forward * accAmount * Time.deltaTime;                
-            }
-            if(Input.GetKey(KeyCode.D)) {
-                Quaternion temp = transform.rotation;
-                temp = Quaternion.LookRotation(transform.right);
-                transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * Time.deltaTime);
-            }
-            if(Input.GetKey(KeyCode.A)) {
-                Quaternion temp = transform.rotation;
-                temp = Quaternion.LookRotation(-transform.right);
-                transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.S)) {
-                target += -transform.forward * accAmount * Time.deltaTime * 0.75f;         
-                reverse = true;       
-                Debug.Log("reverse");
-            }
-            rb.velocity = target;
-            float t = rb.velocity.magnitude;
-            if(t > maxSpeed) {
-                rb.velocity = rb.velocity/t * maxSpeed;
-            }
+        Vector3 target = rb.velocity;
+        //if (Input.anyKey && onGround) {
+        //    Vector3 target = rb.velocity;
+        //    if (Input.GetKey(KeyCode.W)) {
+        //        target += transform.forward * accAmount * Time.deltaTime;                
+        //    }
+        //    if(Input.GetKey(KeyCode.D)) {
+        //        Quaternion temp = transform.rotation;
+        //        temp = Quaternion.LookRotation(transform.right);
+        //        transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * Time.deltaTime);
+        //    }
+        //    if(Input.GetKey(KeyCode.A)) {
+        //        Quaternion temp = transform.rotation;
+        //        temp = Quaternion.LookRotation(-transform.right);
+        //        transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * Time.deltaTime);
+        //    }
+        //    if (Input.GetKey(KeyCode.S)) {
+        //        target += -transform.forward * accAmount * Time.deltaTime * 0.75f;         
+        //        reverse = true;       
+        //        Debug.Log("reverse");
+        //    }
+        //    rb.velocity = target;
+        //    float t = rb.velocity.magnitude;
+        //    if(t > maxSpeed) {
+        //        rb.velocity = rb.velocity/t * maxSpeed;
+        //    }
+        //}
+
+        target += transform.forward * accAmount * Time.deltaTime * -Input.GetAxis("Vertical");      
+
+        float rot = Input.GetAxis("Horizontal");
+        if(rot > 0.8f) {
+            Quaternion temp = transform.rotation;
+            temp = Quaternion.LookRotation(transform.right);
+            transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * rot * Time.deltaTime);
+        } else if (rot < -0.5f){
+            Quaternion temp = transform.rotation;
+            temp = Quaternion.LookRotation(-transform.right);
+            transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * (-rot) * Time.deltaTime);
         }
-        Debug.Log(onGround);
+
+        rb.velocity = target;
+        float t = rb.velocity.magnitude;
+        if(t > maxSpeed) {
+            rb.velocity = rb.velocity/t * maxSpeed;
+        }
+
+        //Debug.Log(rot);
+        //Debug.Log(onGround);
         if(!reverse) {
             Vector3 drag = rb.velocity * (1.0f - Vector3.Dot(rb.velocity.normalized,transform.forward)) * drift;
             rb.velocity -= drag;
