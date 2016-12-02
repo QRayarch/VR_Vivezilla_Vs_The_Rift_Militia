@@ -9,11 +9,10 @@ public class MountPivot : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    
+	void Update () { 
 	    float lR = Input.GetAxis("Right Stick X") * 10;
         if(lR > 0.5f || lR < -0.5f) {
-            transform.Rotate(0,-lR,0);
+            transform.Rotate(0,lR,0);
         }
 	}
 }

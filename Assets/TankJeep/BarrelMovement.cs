@@ -19,7 +19,7 @@ public class BarrelMovement : MonoBehaviour {
         float uD = Input.GetAxis("Right Stick Y") * 10;
 
         if(uD > 0.5f || uD < -0.5f) {
-            transform.Rotate(-uD,0,0);
+            transform.Rotate(uD,0,0);
         }
 
         if(Input.GetButton("Fire1") && canFire) {

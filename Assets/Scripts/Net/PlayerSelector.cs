@@ -7,6 +7,7 @@ public class PlayerSelector : NetworkBehaviour
 {
     public enum Mode
     {
+        None,
         Spectator,
         Vive,
         Rift,
@@ -15,43 +16,63 @@ public class PlayerSelector : NetworkBehaviour
     public GameObject vivePlayer;
     public GameObject spectorPlayer;
 
-    public override void OnStartAuthority()
+    [SyncVar(hook = "DisplayMode")]
+    public Mode mode = Mode.None;
+
+    public override void OnStartLocalPlayer()
     {
-        base.OnStartAuthority();
+        base.OnStartLocalPlayer();
+        CheckForMode();
+    }
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        DisplayMode(mode);
+    }
+
+    public void CheckForMode()
+    {
         //if (!hasAuthority) return;
         if (VRDevice.model.Contains("Vive"))
         {
             //LOAD IN THE VIVEZILLA HAHAH
-            CmdInstancePlayer(Mode.Vive);
+            CmdSetMode(Mode.Vive);
             return;
         }
-
-        CmdInstancePlayer(Mode.Spectator);
+        CmdSetMode(Mode.Spectator);
     }
 
     [Command]
-    public void CmdInstancePlayer(Mode mode)
+    public void CmdSetMode(Mode m)
     {
+        mode = m;
+    }
+
+    public void DisplayMode(Mode m)
+    {
+        mode = m;
         vivePlayer.SetActive(false);
         spectorPlayer.SetActive(false);
 
-        if (mode == Mode.Vive)
+        if (m == Mode.Vive)
         {
             vivePlayer.SetActive(true);
         }
-        if(mode == Mode.Spectator)
+        if (m == Mode.Spectator)
         {
             spectorPlayer.SetActive(true);
-            spectorPlayer.transform.GetChild(0).gameObject.SetActive(hasAuthority);
+           
+            spectorPlayer.transform.GetChild(0).gameObject.SetActive(isLocalPlayer);
         }
-        Debug.Log(isLocalPlayer + " " + isClient + " " + isServer + " " + hasAuthority + " " + netId);
     }
+
 
     public void Update()
     {
         if (!isLocalPlayer)
             return;
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             spectorPlayer.transform.position += spectorPlayer.transform.forward * 100 * Time.deltaTime;
         }
