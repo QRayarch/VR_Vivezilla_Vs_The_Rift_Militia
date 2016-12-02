@@ -23,6 +23,7 @@ GameObject:
   - 65: {fileID: 65000014119306372}
   - 23: {fileID: 23000010827715928}
   - 54: {fileID: 54000010590041188}
+  - 114: {fileID: 114000010209423338}
   m_Layer: 0
   m_Name: Small Building
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013586957066}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -10.898293, y: 5.9, z: 8.664148}
+  m_LocalPosition: {x: 21.846792, y: 1.8, z: 179.90456}
   m_LocalScale: {x: 9.823371, y: 9.525691, z: 15.47925}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_Children: []
@@ -106,3 +107,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000010209423338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013586957066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abaf1ff57ffa76e40959971d0baeed8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
