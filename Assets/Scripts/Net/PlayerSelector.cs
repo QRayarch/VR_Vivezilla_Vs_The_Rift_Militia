@@ -45,6 +45,7 @@ public class PlayerSelector : NetworkBehaviour
         if(mode == Mode.Spectator)
         {
             spectorPlayer.SetActive(true);
+            spectorPlayer.transform.GetChild(0).gameObject.SetActive(isLocalPlayer);
         }
     }
 
