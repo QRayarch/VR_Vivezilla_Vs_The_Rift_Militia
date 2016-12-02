@@ -57,7 +57,7 @@ public class JeepMovement : MonoBehaviour {
         //    }
         //}
 
-        target += transform.forward * accAmount * Time.deltaTime * -Input.GetAxis("Vertical");      
+        target += transform.forward * accAmount * Time.deltaTime * Input.GetAxis("Vertical");      
 
         float rot = Input.GetAxis("Horizontal");
         if(rot > 0.8f) {
