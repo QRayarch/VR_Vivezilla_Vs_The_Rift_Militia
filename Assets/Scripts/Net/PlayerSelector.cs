@@ -15,10 +15,10 @@ public class PlayerSelector : NetworkBehaviour
     public GameObject vivePlayer;
     public GameObject spectorPlayer;
 
-    public override void OnStartClient()
+    public override void OnStartAuthority()
     {
-        base.OnStartClient();
-        if (!hasAuthority) return;
+        base.OnStartAuthority();
+        //if (!hasAuthority) return;
         if (VRDevice.model.Contains("Vive"))
         {
             //LOAD IN THE VIVEZILLA HAHAH
@@ -42,9 +42,9 @@ public class PlayerSelector : NetworkBehaviour
         if(mode == Mode.Spectator)
         {
             spectorPlayer.SetActive(true);
-            spectorPlayer.transform.GetChild(0).gameObject.SetActive(isLocalPlayer);
+            spectorPlayer.transform.GetChild(0).gameObject.SetActive(hasAuthority);
         }
-        Debug.Log(isLocalPlayer + " " + isClient + " " + isServer);
+        Debug.Log(isLocalPlayer + " " + isClient + " " + isServer + " " + hasAuthority + " " + netId);
     }
 
     public void Update()
