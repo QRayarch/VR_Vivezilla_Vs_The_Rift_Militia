@@ -17,6 +17,7 @@ public class CopyTransform : MonoBehaviour {
 
     void UpdateTransform()
     {
+        if (!trans.gameObject.activeInHierarchy) return;
         this.transform.position = trans.position;
         this.transform.rotation = trans.rotation;
     }
