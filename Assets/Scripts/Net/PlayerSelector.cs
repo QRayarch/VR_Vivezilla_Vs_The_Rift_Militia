@@ -14,7 +14,13 @@ public class PlayerSelector : NetworkBehaviour
     }
 
     public GameObject vivePlayer;
+    public GameObject riftPlayer;
     public GameObject spectorPlayer;
+
+    [Header("RiftUpdate")]
+    public JeepMovement jeepMove;
+    public MountPivot pivot;
+    public BarrelMovement barrle;
 
     [SyncVar(hook = "DisplayMode")]
     public Mode mode = Mode.None;
@@ -33,7 +39,11 @@ public class PlayerSelector : NetworkBehaviour
 
     public void CheckForMode()
     {
-        //if (!hasAuthority) return;
+        if (VRDevice.model.Contains("Oculus"))
+        {
+            CmdSetMode(Mode.Rift);
+            return;
+        }
         if (VRDevice.model.Contains("Vive"))
         {
             //LOAD IN THE VIVEZILLA HAHAH
@@ -53,11 +63,16 @@ public class PlayerSelector : NetworkBehaviour
     {
         mode = m;
         vivePlayer.SetActive(false);
+        riftPlayer.SetActive(false);
         spectorPlayer.SetActive(false);
 
         if (m == Mode.Vive)
         {
             vivePlayer.SetActive(true);
+        }
+        if(m == Mode.Rift)
+        {
+            riftPlayer.SetActive(true);
         }
         if (m == Mode.Spectator)
         {
@@ -72,6 +87,36 @@ public class PlayerSelector : NetworkBehaviour
     {
         if (!isLocalPlayer)
             return;
+        if(mode == Mode.Spectator)
+        {
+            UpdateSpecator();
+        } else if(mode == Mode.Rift)
+        {
+            UpdateRift();
+        }
+        
+    }
+
+    public void UpdateRift()
+    {
+        float uD = Input.GetAxis("Right Stick Y");
+        barrle.Rotate(uD);
+        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") > 0.2f)
+        {
+            barrle.Fire();
+        }
+
+        float lR = Input.GetAxis("Right Stick X");
+        pivot.Rotate(lR);
+
+        float forward = Input.GetAxis("Vertical");
+        float rot = Input.GetAxis("Horizontal");
+        jeepMove.MoveFwd(forward);
+        jeepMove.doRotation(rot);
+    }
+    
+    private void UpdateSpecator()
+    {
         if (Input.GetKey(KeyCode.W))
         {
             spectorPlayer.transform.position += spectorPlayer.transform.forward * 100 * Time.deltaTime;

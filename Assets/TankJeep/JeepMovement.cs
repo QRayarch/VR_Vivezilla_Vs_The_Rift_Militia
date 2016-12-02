@@ -26,6 +26,43 @@ public class JeepMovement : MonoBehaviour {
     }
 
 
+    public void MoveFwd(float amount){
+        Vector3 target = rb.velocity;
+
+
+        target += transform.forward * accAmount * Time.deltaTime * amount;
+        rb.velocity = target;
+
+        float t = rb.velocity.magnitude;
+        if (t > maxSpeed)
+        {
+            rb.velocity = rb.velocity / t * maxSpeed;
+        }
+
+        //Debug.Log(rot);
+        //Debug.Log(onGround);
+        Vector3 drag = rb.velocity * (1.0f - Vector3.Dot(rb.velocity.normalized, transform.forward)) * drift;
+        rb.velocity -= drag;
+
+
+    }
+
+    public void doRotation(float rotAmount)
+    {
+        if (rotAmount > 0.8f)
+        {
+            Quaternion temp = transform.rotation;
+            temp = Quaternion.LookRotation(transform.right);
+            transform.rotation = Quaternion.Slerp(transform.rotation, temp, turnSpeed * rotAmount * Time.deltaTime);
+        }
+        else if (rotAmount < -0.5f)
+        {
+            Quaternion temp = transform.rotation;
+            temp = Quaternion.LookRotation(-transform.right);
+            transform.rotation = Quaternion.Slerp(transform.rotation, temp, turnSpeed * (-rotAmount) * Time.deltaTime);
+        }
+    }
+
     // Update is called once per frame
     void Update() {
         bool reverse = false;
@@ -56,31 +93,5 @@ public class JeepMovement : MonoBehaviour {
         //        rb.velocity = rb.velocity/t * maxSpeed;
         //    }
         //}
-
-        target += transform.forward * accAmount * Time.deltaTime * Input.GetAxis("Vertical");      
-
-        float rot = Input.GetAxis("Horizontal");
-        if(rot > 0.8f) {
-            Quaternion temp = transform.rotation;
-            temp = Quaternion.LookRotation(transform.right);
-            transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * rot * Time.deltaTime);
-        } else if (rot < -0.5f){
-            Quaternion temp = transform.rotation;
-            temp = Quaternion.LookRotation(-transform.right);
-            transform.rotation = Quaternion.Slerp(transform.rotation,temp,turnSpeed * (-rot) * Time.deltaTime);
-        }
-
-        rb.velocity = target;
-        float t = rb.velocity.magnitude;
-        if(t > maxSpeed) {
-            rb.velocity = rb.velocity/t * maxSpeed;
-        }
-
-        //Debug.Log(rot);
-        //Debug.Log(onGround);
-        if(!reverse) {
-            Vector3 drag = rb.velocity * (1.0f - Vector3.Dot(rb.velocity.normalized,transform.forward)) * drift;
-            rb.velocity -= drag;
-        }
     }
 }
