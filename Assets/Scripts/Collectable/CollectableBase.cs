@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class CollectableBase : MonoBehaviour {
-    int identity;
+    protected int identity;
 
-    void OnCollisionEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
         PlayerSelector player= col.gameObject.transform.root.GetComponent<PlayerSelector>();
         if((int)player.GetMode() == 2)
@@ -19,5 +19,5 @@ public class CollectableBase : MonoBehaviour {
         }
     }
 
-    public virtual void doTask(PlayerSelector p) { }
+    public virtual void doTask(PlayerSelector p) { Destroy(this.gameObject); }
 }
