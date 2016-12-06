@@ -21,6 +21,7 @@ public class HandDestroyer : MonoBehaviour {
         int health = collision.collider.gameObject.GetComponent<Building>().health;
         if(effect != null)
         {
+            effect.transform.position = collision.contacts[0].point;
             effect.Emit(10);
         }
         if (health <= 0)
@@ -31,6 +32,7 @@ public class HandDestroyer : MonoBehaviour {
                 rb.isKinematic = false;
                 rb.useGravity = true;
             }
+            collision.collider.enabled = false;
         }
     }
 }
