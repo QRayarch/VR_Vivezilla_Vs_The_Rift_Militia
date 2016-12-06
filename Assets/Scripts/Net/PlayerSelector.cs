@@ -121,7 +121,7 @@ public class PlayerSelector : NetworkBehaviour
         float lR = Input.GetAxis("Right Stick X");
         pivot.Rotate(lR);
 
-        float forward = Input.GetAxis("Vertical");
+        float forward = -Input.GetAxis("Vertical");
         float rot = Input.GetAxis("Horizontal");
         jeepMove.MoveFwd(forward);
         jeepMove.doRotation(rot);

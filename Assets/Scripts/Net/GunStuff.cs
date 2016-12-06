@@ -12,6 +12,9 @@ public class GunStuff : NetworkBehaviour {
     [SyncVar]
     private float bulletTimer = 0;
 
+    [SyncVar]
+    public float damage = 1;
+
     void Reset()
     {
         forward = transform;
@@ -22,7 +25,9 @@ public class GunStuff : NetworkBehaviour {
         
         if(bulletTimer >= fireRate)
         {
-            Rigidbody rb = ((GameObject)Instantiate(bullet, forward.position + (forward.forward), Quaternion.identity)).GetComponent<Rigidbody>();
+            GameObject temp = ((GameObject)Instantiate(bullet, forward.position + (forward.forward), Quaternion.identity));
+            temp.transform.localScale = Vector3.one * damage;
+            Rigidbody rb = temp.GetComponent<Rigidbody>();
             rb.AddForce((forward.forward + Random.insideUnitSphere * 0.01f).normalized * speed);
             NetworkServer.Spawn(rb.gameObject);
             Destroy(rb.gameObject, 3.0f);
@@ -30,6 +35,8 @@ public class GunStuff : NetworkBehaviour {
             bulletTimer = 0;
         }
     }
+
+    public void damageIncrement() { damage += 1; }
 
     void Update()
     {
