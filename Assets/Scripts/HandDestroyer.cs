@@ -15,15 +15,19 @@ public class HandDestroyer : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        collision.collider.gameObject.GetComponent<Building>().health -= 1;
-        int health = collision.collider.gameObject.GetComponent<Building>().health;
-        if (health <= 0)
+        if (collision.collider.gameObject.tag.Equals("MainBuilding"))
         {
-            for(int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
+            collision.collider.gameObject.GetComponent<Building>().health -= 1;
+            int health = collision.collider.gameObject.GetComponent<Building>().health;
+            if (health <= 0)
             {
-                Rigidbody rb = collision.collider.gameObject.transform.GetChild(i).GetComponent<Rigidbody>();
-                rb.isKinematic = false;
-                rb.useGravity = true;
+                for (int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
+                {
+                    Rigidbody rb = collision.collider.gameObject.transform.GetChild(i).GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    rb.useGravity = true;
+                }
+                collision.collider.enabled = false;
             }
         }
     }
