@@ -163,4 +163,9 @@ public class PlayerSelector : NetworkBehaviour
             spectorPlayer.transform.rotation *= Quaternion.Euler(rotateSpeed * Time.deltaTime, 0, 0);
         }
     }
+
+    public Mode GetMode()
+    {
+        return mode;
+    }
 }
