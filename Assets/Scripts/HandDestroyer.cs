@@ -3,6 +3,8 @@ using System.Collections;
 
 public class HandDestroyer : MonoBehaviour {
 
+    public ParticleSystem effect;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +19,10 @@ public class HandDestroyer : MonoBehaviour {
     {
         collision.collider.gameObject.GetComponent<Building>().health -= 1;
         int health = collision.collider.gameObject.GetComponent<Building>().health;
+        if(effect != null)
+        {
+            effect.Emit(10);
+        }
         if (health <= 0)
         {
             for(int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
