@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GodzillaCharge : MonoBehaviour {
+public class GodzillaCharge : CollectableBase {
+    public override void doTask(PlayerSelector p)
+    {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 }

@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class JeepDamageUp : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class JeepDamageUp : CollectableBase
+{
+    public override void doTask(PlayerSelector p)
+    {
+        p.GetComponent<GunStuff>().damageIncrement();
+        Destroy(this);
+    }
 }
