@@ -69,16 +69,28 @@ public class PlayerSelector : NetworkBehaviour
         if (m == Mode.Vive)
         {
             vivePlayer.SetActive(true);
+            SetLocalOnly(vivePlayer.transform, isLocalPlayer);
         }
         if(m == Mode.Rift)
         {
             riftPlayer.SetActive(true);
+            SetLocalOnly(riftPlayer.transform, isLocalPlayer);
         }
         if (m == Mode.Spectator)
         {
             spectorPlayer.SetActive(true);
-           
-            spectorPlayer.transform.GetChild(0).gameObject.SetActive(isLocalPlayer);
+            SetLocalOnly(spectorPlayer.transform, isLocalPlayer);
+        }
+    }
+
+    private void SetLocalOnly(Transform t, bool isLocal)
+    {
+        for(int c = 0; c < t.childCount; ++c)
+        {
+            if(t.GetChild(c).CompareTag("LocalOnly"))
+            {
+                t.GetChild(c).gameObject.SetActive(isLocal);
+            }
         }
     }
 
