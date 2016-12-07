@@ -3122,6 +3122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa30c845a10bf740b1df6ea93a454cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: 0
 --- !u!114 &114000011169775502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3251,7 +3252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3db05fa8e460247ad29ce30fd4c8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hapticAmountOnHit: 1000
+  hapticAmountOnHit: 2000
   hand: 1
   effect: {fileID: 198000013742666158}
 --- !u!114 &114000011614481990
@@ -3368,6 +3369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa30c845a10bf740b1df6ea93a454cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: 1
 --- !u!114 &114000012122690200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3464,7 +3466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3db05fa8e460247ad29ce30fd4c8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hapticAmountOnHit: 1000
+  hapticAmountOnHit: 2000
   hand: 0
   effect: {fileID: 198000013742666158}
 --- !u!114 &114000013045954306

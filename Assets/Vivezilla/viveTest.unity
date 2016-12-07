@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18053588, g: 0.22601774, b: 0.30718702, a: 1}
+  m_IndirectSpecularColor: {r: 0.18053626, g: 0.2260185, b: 0.30718803, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -530,26 +530,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 23000011132375206, guid: 2670779286c76b44796f8b760402284c,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 856185250}
     - target: {fileID: 33000011757719944, guid: 2670779286c76b44796f8b760402284c,
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1134109420}
-    - target: {fileID: 114000011885092444, guid: 2670779286c76b44796f8b760402284c,
+      objectReference: {fileID: 1080095775}
+    - target: {fileID: 23000011132375206, guid: 2670779286c76b44796f8b760402284c,
         type: 2}
-      propertyPath: m_ChildIndex
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 54000011199490704, guid: 2670779286c76b44796f8b760402284c,
-        type: 2}
-      propertyPath: m_Mass
-      value: 30
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2011772201}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2670779286c76b44796f8b760402284c, type: 2}
   m_IsPrefabParent: 0
@@ -1155,35 +1145,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ec903824c9222f408057d17d15bd110, type: 2}
   m_IsPrefabParent: 0
---- !u!21 &856185250
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: PixelSnap
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &878593791
 Prefab:
   m_ObjectHideFlags: 0
@@ -1548,99 +1509,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ec903824c9222f408057d17d15bd110, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1110075907
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -67.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 66.66506
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011593491906, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_Name
-      value: Med. Building 2 (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1117379016
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -65.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011593491906, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-      propertyPath: m_Name
-      value: Med. Building 2 (12)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
-  m_IsPrefabParent: 0
---- !u!43 &1134109420
+--- !u!43 &1080095775
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1768,6 +1637,98 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &1110075907
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -67.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 66.66506
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011593491906, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_Name
+      value: Med. Building 2 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1117379016
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -65.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012548020540, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011593491906, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+      propertyPath: m_Name
+      value: Med. Building 2 (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8389218f3ab37cf46a1451e61f22b9a9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1189222304
 Prefab:
   m_ObjectHideFlags: 0
@@ -2450,6 +2411,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ec903824c9222f408057d17d15bd110, type: 2}
   m_IsPrefabParent: 0
+--- !u!21 &2011772201
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: PixelSnap
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &2033489335
 Prefab:
   m_ObjectHideFlags: 0

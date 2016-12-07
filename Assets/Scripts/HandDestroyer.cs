@@ -17,15 +17,16 @@ public class HandDestroyer : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        collision.collider.gameObject.GetComponent<Building>().health -= 1;
-        int health = collision.collider.gameObject.GetComponent<Building>().health;
+        Building building = collision.collider.gameObject.GetComponent<Building>();
+        if (building == null || building.health <= 0) return;
+        building.health -= 1;
         if(effect != null)
         {
             effect.transform.position = collision.contacts[0].point;
             effect.Emit(10);
         }
         Haptics.ProvideHaptics(hand, hapticAmountOnHit);
-        if (health <= 0)
+        if (building.health <= 0)
         {
             for(int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
             {

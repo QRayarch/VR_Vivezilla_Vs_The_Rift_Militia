@@ -10,6 +10,8 @@ public class Haptics : MonoBehaviour {
         Right
     }
 
+    public Hand hand;
+
     private static int leftIndex = -1;
     private static int rightIndex = -1;
 
@@ -18,8 +20,9 @@ public class Haptics : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	    
-	}
+        tracker = GetComponent<SteamVR_TrackedObject>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,16 +33,14 @@ public class Haptics : MonoBehaviour {
     private void TryRegister()
     {
         if (isRegistered) return;
-        int lI = SteamVR_Controller.GetDeviceIndex(SteamVR_Controller.DeviceRelation.FarthestLeft);
-        int rI = SteamVR_Controller.GetDeviceIndex(SteamVR_Controller.DeviceRelation.FarthestRight);
-        if ((int)tracker.index == lI)
+        if (hand == Hand.Left)
         {
-            leftIndex = lI;
+            leftIndex = (int)tracker.index;
             isRegistered = true;
         }
-        else if ((int)tracker.index == rI)
+        else if (hand == Hand.Right)
         {
-            rightIndex = rI;
+            rightIndex = (int)tracker.index;
             isRegistered = false;
         }
     }
