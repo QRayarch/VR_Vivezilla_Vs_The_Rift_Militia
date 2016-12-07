@@ -3,17 +3,17 @@ using System.Collections;
 
 public class HandDestroyer : MonoBehaviour {
 
+    public ushort hapticAmountOnHit = 1000;
+    public Haptics.Hand hand;
+
+    [Header("FX")]
     public ParticleSystem effect;
 
 	// Use this for initialization
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -24,6 +24,7 @@ public class HandDestroyer : MonoBehaviour {
             effect.transform.position = collision.contacts[0].point;
             effect.Emit(10);
         }
+        Haptics.ProvideHaptics(hand, hapticAmountOnHit);
         if (health <= 0)
         {
             for(int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
