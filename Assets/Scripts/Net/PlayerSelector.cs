@@ -177,7 +177,7 @@ public class PlayerSelector : NetworkBehaviour
         return mode;
     }
 
-    void OnCollisionEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Bullet"))
         {
