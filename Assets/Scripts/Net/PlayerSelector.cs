@@ -146,22 +146,24 @@ public class PlayerSelector : NetworkBehaviour
             spectorPlayer.transform.position += spectorPlayer.transform.right * 100 * Time.deltaTime;
         }
         float rotateSpeed = 100;
+        Vector3 angles = spectorPlayer.transform.rotation.eulerAngles;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            spectorPlayer.transform.rotation *= Quaternion.Euler(0, -rotateSpeed * Time.deltaTime, 0);
+            angles.y -= rotateSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            spectorPlayer.transform.rotation *= Quaternion.Euler(0, rotateSpeed * Time.deltaTime, 0);
+            angles.y += rotateSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            spectorPlayer.transform.rotation *= Quaternion.Euler(-rotateSpeed * Time.deltaTime, 0, 0);
+            angles.x -= rotateSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            spectorPlayer.transform.rotation *= Quaternion.Euler(rotateSpeed * Time.deltaTime, 0, 0);
+            angles.x += rotateSpeed * Time.deltaTime;
         }
+        spectorPlayer.transform.rotation = Quaternion.Euler(angles);
     }
 
     public Mode GetMode()
