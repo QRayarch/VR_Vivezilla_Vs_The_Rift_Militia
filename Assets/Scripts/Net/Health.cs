@@ -22,4 +22,9 @@ public class Health : NetworkBehaviour {
     {
         get { return health < 0; }
     }
+
+    public void SetHealth(int _health)
+    {
+        health = _health;
+    }
 }

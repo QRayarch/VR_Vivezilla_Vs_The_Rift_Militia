@@ -16,6 +16,9 @@ public class PlayerSelector : NetworkBehaviour
     public GameObject vivePlayer;
     public GameObject riftPlayer;
     public GameObject spectorPlayer;
+    public int godzillaHealth;
+    public int jeepHealth;
+    private Health healthComponent;
 
     [Header("RiftUpdate")]
     public JeepMovement jeepMove;
@@ -39,15 +42,18 @@ public class PlayerSelector : NetworkBehaviour
 
     public void CheckForMode()
     {
+        healthComponent = GetComponent<Health>();
         if (VRDevice.model.Contains("Oculus"))
         {
             CmdSetMode(Mode.Rift);
+            healthComponent.SetHealth(jeepHealth);
             return;
         }
         if (VRDevice.model.Contains("Vive"))
         {
             //LOAD IN THE VIVEZILLA HAHAH
             CmdSetMode(Mode.Vive);
+            healthComponent.SetHealth(godzillaHealth);
             return;
         }
         CmdSetMode(Mode.Spectator);
@@ -170,4 +176,14 @@ public class PlayerSelector : NetworkBehaviour
     {
         return mode;
     }
+
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.gameObject.CompareTag("Bullet"))
+    //    {
+    //        Debug.Log("HIT");
+    //        healthComponent.Damage(1);
+    //        Debug.Log("current heal;th: " + healthComponent.health);
+    //    }
+    //}
 }

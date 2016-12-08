@@ -65,6 +65,7 @@ GameObject:
   - 114: {fileID: 114000013939957346}
   - 114: {fileID: 114000011885092444}
   - 114: {fileID: 114000010318536196}
+  - 114: {fileID: 114000011273667266}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -361,6 +362,7 @@ GameObject:
   - 4: {fileID: 4000013683685180}
   - 33: {fileID: 33000010833651288}
   - 23: {fileID: 23000010493792458}
+  - 65: {fileID: 65000010468547334}
   m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
@@ -615,7 +617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000012977556860
 GameObject:
   m_ObjectHideFlags: 1
@@ -688,6 +690,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013213508186}
   - 114: {fileID: 114000012406397616}
+  - 136: {fileID: 136000011702780102}
   m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
@@ -1487,7 +1490,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010348787782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -15.835717, y: 21.6, z: 41.978714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -2836,6 +2839,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!65 &65000010468547334
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011861461366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65000011028986178
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3232,6 +3247,8 @@ MonoBehaviour:
   vivePlayer: {fileID: 1000012968150624}
   riftPlayer: {fileID: 1000011873275398}
   spectorPlayer: {fileID: 1000012603082478}
+  godzillaHealth: 10
+  jeepHealth: 10
   jeepMove: {fileID: 114000012122690200}
   pivot: {fileID: 114000012388806448}
   barrle: {fileID: 114000010746419332}
@@ -3249,6 +3266,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoulder: {fileID: 4000012915669284}
   hand: {fileID: 4000013683685180}
+--- !u!114 &114000011273667266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010348787782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533eb30d9e38a7645a9c1e742e2f4573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114000011293341826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3770,8 +3799,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 5.8135, y: 35.600002, z: 0.5227}
-  - {x: 27.849998, y: 52.999996, z: 0}
+  - {x: -10.022217, y: 57.200005, z: 42.501415}
+  - {x: 12.014281, y: 74.6, z: 41.978714}
   m_Parameters:
     startWidth: 8
     endWidth: 4
@@ -3812,8 +3841,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -5.501, y: 35.600002, z: 0.5227}
-  - {x: -27.3, y: 52.249996, z: 1.84}
+  - {x: -21.336718, y: 57.200005, z: 42.501415}
+  - {x: -43.135715, y: 73.85, z: 43.818714}
   m_Parameters:
     startWidth: 8
     endWidth: 4
@@ -3854,8 +3883,8 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 28.85, z: 0}
-  - {x: 0, y: 80.1, z: -0.7634}
+  - {x: -15.835717, y: 50.45, z: 41.978714}
+  - {x: -15.835717, y: 101.7, z: 41.215313}
   m_Parameters:
     startWidth: 15
     endWidth: 10
@@ -3943,6 +3972,19 @@ CapsuleCollider:
   m_Height: 2.9
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!136 &136000011702780102
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013223510566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21
+  m_Height: 0.77
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.48, z: 0}
 --- !u!136 &136000012300312962
 CapsuleCollider:
   m_ObjectHideFlags: 1
