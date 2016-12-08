@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Citymap.unity
+  - enabled: 1
     path: Assets/Vivezilla/viveTest.unity
   - enabled: 1
     path: Assets/NetTest.unity
