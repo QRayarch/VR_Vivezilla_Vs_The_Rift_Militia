@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LocalOnly
   - MainBuilding
+  - Bullet
   layers:
   - Default
   - TransparentFX
