@@ -32,7 +32,6 @@ public class PlayerSelector : NetworkBehaviour
     {
         base.OnStartLocalPlayer();
         CheckForMode();
-        healthComponent = GetComponent<Health>();
     }
 
     public override void OnStartClient()
@@ -43,17 +42,18 @@ public class PlayerSelector : NetworkBehaviour
 
     public void CheckForMode()
     {
+        healthComponent = GetComponent<Health>();
         if (VRDevice.model.Contains("Oculus"))
         {
             CmdSetMode(Mode.Rift);
-            GetComponent<Health>().health = jeepHealth;
+            healthComponent.SetHealth(jeepHealth);
             return;
         }
         if (VRDevice.model.Contains("Vive"))
         {
             //LOAD IN THE VIVEZILLA HAHAH
             CmdSetMode(Mode.Vive);
-            GetComponent<Health>().health = godzillaHealth;
+            healthComponent.SetHealth(godzillaHealth);
             return;
         }
         CmdSetMode(Mode.Spectator);
