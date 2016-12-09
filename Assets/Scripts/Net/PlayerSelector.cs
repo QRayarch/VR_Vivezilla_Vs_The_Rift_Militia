@@ -21,9 +21,12 @@ public class PlayerSelector : NetworkBehaviour
     private Health healthComponent;
 
     public GunStuff godzillaGun;
+    public int viveStartAmmo = 100;
     public SteamVR_Controller.DeviceRelation hand;
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     private SteamVR_TrackedObject trackedObj;
+    public HandDestroyer[] dHands;
+    public int ammoPerBuilding = 100;
     private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input(SteamVR_Controller.GetDeviceIndex(hand)); } }
 
     [Header("RiftUpdate")]
@@ -59,6 +62,11 @@ public class PlayerSelector : NetworkBehaviour
         {
             //LOAD IN THE VIVEZILLA HAHAH
             CmdSetMode(Mode.Vive);
+            godzillaGun.GiveAmmo(viveStartAmmo);
+            for(int h = 0; h < dHands.Length; h++)
+            {
+                dHands[h].OnDestroyBuilding += BuildingWreched;
+            }
             healthComponent.SetHealth(godzillaHealth);
             trackedObj = GetComponent<SteamVR_TrackedObject>();
             return;
@@ -98,6 +106,11 @@ public class PlayerSelector : NetworkBehaviour
         }
     }
 
+    private void BuildingWreched()
+    {
+        godzillaGun.GiveAmmo(ammoPerBuilding);
+    }
+
     private void SetLocalOnly(Transform t, bool isLocal)
     {
         for(int c = 0; c < t.childCount; ++c)
@@ -131,7 +144,7 @@ public class PlayerSelector : NetworkBehaviour
     public void UpdateVive()
     {
         bool triggerButtonDown = false;
-        triggerButtonDown = controller.GetPressDown(triggerButton);
+        triggerButtonDown = controller.GetPress(triggerButton);
         if (triggerButtonDown)
         {
             godzillaGun.CmdFireBullet();
