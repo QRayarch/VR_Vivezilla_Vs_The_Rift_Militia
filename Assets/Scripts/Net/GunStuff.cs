@@ -8,6 +8,7 @@ public class GunStuff : NetworkBehaviour {
     public float fireRate = 0.1f;
     public float speed = 10000;
     public Transform forward;
+    public float destroyBulletAfterTime = 3;
 
     [SyncVar]
     private float bulletTimer = 0;
@@ -30,7 +31,7 @@ public class GunStuff : NetworkBehaviour {
             Rigidbody rb = temp.GetComponent<Rigidbody>();
             rb.AddForce((forward.forward + Random.insideUnitSphere * 0.01f).normalized * speed);
             NetworkServer.Spawn(rb.gameObject);
-            Destroy(rb.gameObject, 3.0f);
+            Destroy(rb.gameObject, destroyBulletAfterTime);
 
             bulletTimer = 0;
         }

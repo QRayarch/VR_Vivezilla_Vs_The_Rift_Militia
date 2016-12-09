@@ -131,7 +131,7 @@ public class PlayerSelector : NetworkBehaviour
     public void UpdateVive()
     {
         bool triggerButtonDown = false;
-        triggerButtonDown = controller.GetPressDown(triggerButton);
+        triggerButtonDown = controller.GetPress(triggerButton);
         if (triggerButtonDown)
         {
             godzillaGun.CmdFireBullet();

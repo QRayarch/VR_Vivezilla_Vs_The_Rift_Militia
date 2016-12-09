@@ -3012,6 +3012,7 @@ MonoBehaviour:
   fireRate: 0.1
   speed: 10000
   forward: {fileID: 4000010587477580}
+  destroyBulletAfterTime: 3
   damage: 1
 --- !u!114 &114000010180205646
 MonoBehaviour:
@@ -3062,9 +3063,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1000012874808464, guid: 1caf03d62a1c07e41ac843087f654a85, type: 2}
-  fireRate: 0.8
-  speed: 10000
+  fireRate: 0.1
+  speed: 8000
   forward: {fileID: 4000012556067198}
+  destroyBulletAfterTime: 0.5
   damage: 1
 --- !u!114 &114000010309825874
 MonoBehaviour:
