@@ -3174,7 +3174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4000013053197200}
   m_ChildIndex: 3
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0.05
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
@@ -3320,7 +3320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4000013430703830}
   m_ChildIndex: 5
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
@@ -3641,9 +3641,9 @@ MonoBehaviour:
   m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
-  m_MovementThreshold: 0.00001
+  m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0
+  m_InterpolateMovement: 0.5
 --- !u!114 &114000013749800840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4000011823073936}
   m_ChildIndex: 1
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
@@ -3718,7 +3718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4000013213508186}
   m_ChildIndex: 6
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0.05
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
@@ -3754,7 +3754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4000012365755836}
   m_ChildIndex: 4
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0.05
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0.001
