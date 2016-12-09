@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public delegate void DestroyedBuilding();
+
 public class HandDestroyer : MonoBehaviour {
 
     public ushort hapticAmountOnHit = 1000;
@@ -9,8 +11,10 @@ public class HandDestroyer : MonoBehaviour {
     [Header("FX")]
     public ParticleSystem effect;
 
-	// Use this for initialization
-	void Start () {
+    private event DestroyedBuilding onDestroyBuilding;
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 
@@ -28,13 +32,24 @@ public class HandDestroyer : MonoBehaviour {
         Haptics.ProvideHaptics(hand, hapticAmountOnHit);
         if (building.health <= 0)
         {
-            for(int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
+            if (onDestroyBuilding != null)
+            {
+                onDestroyBuilding.Invoke();
+            }
+            for (int i = 0; i < collision.collider.gameObject.transform.childCount; ++i)
             {
                 Rigidbody rb = collision.collider.gameObject.transform.GetChild(i).GetComponent<Rigidbody>();
                 rb.isKinematic = false;
                 rb.useGravity = true;
+
             }
             collision.collider.enabled = false;
         }
+    }
+
+    public DestroyedBuilding OnDestroyBuilding
+    {
+        get { return onDestroyBuilding; }
+        set { onDestroyBuilding = value; }
     }
 }
