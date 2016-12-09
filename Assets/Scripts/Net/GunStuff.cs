@@ -26,7 +26,7 @@ public class GunStuff : NetworkBehaviour {
         if(bulletTimer >= fireRate)
         {
             GameObject temp = ((GameObject)Instantiate(bullet, forward.position + (forward.forward), Quaternion.identity));
-            temp.transform.localScale = Vector3.one * damage;
+            temp.transform.localScale  *= damage;
             Rigidbody rb = temp.GetComponent<Rigidbody>();
             rb.AddForce((forward.forward + Random.insideUnitSphere * 0.01f).normalized * speed);
             NetworkServer.Spawn(rb.gameObject);

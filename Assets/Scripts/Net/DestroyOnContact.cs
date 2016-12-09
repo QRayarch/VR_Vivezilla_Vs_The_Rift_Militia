@@ -22,7 +22,6 @@ public class DestroyOnContact : MonoBehaviour {
         if(h != null)
         {
             h.Damage(transform.localScale.x);
-            Debug.Log("Ey boy. Dis bullet is going up YOUR ass");
         }
         Destroy(gameObject);
     }

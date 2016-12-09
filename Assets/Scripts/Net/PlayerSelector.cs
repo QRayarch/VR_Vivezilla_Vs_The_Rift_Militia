@@ -20,6 +20,12 @@ public class PlayerSelector : NetworkBehaviour
     public int jeepHealth;
     private Health healthComponent;
 
+    public GunStuff godzillaGun;
+    public SteamVR_Controller.DeviceRelation hand;
+    private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+    private SteamVR_TrackedObject trackedObj;
+    private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input(SteamVR_Controller.GetDeviceIndex(hand)); } }
+
     [Header("RiftUpdate")]
     public JeepMovement jeepMove;
     public MountPivot pivot;
@@ -54,6 +60,7 @@ public class PlayerSelector : NetworkBehaviour
             //LOAD IN THE VIVEZILLA HAHAH
             CmdSetMode(Mode.Vive);
             healthComponent.SetHealth(godzillaHealth);
+            trackedObj = GetComponent<SteamVR_TrackedObject>();
             return;
         }
         CmdSetMode(Mode.Spectator);
@@ -114,7 +121,21 @@ public class PlayerSelector : NetworkBehaviour
         {
             UpdateRift();
         }
-        
+        else if (mode == Mode.Vive)
+        {
+            UpdateVive();
+        }
+
+    }
+
+    public void UpdateVive()
+    {
+        bool triggerButtonDown = false;
+        triggerButtonDown = controller.GetPressDown(triggerButton);
+        if (triggerButtonDown)
+        {
+            godzillaGun.CmdFireBullet();
+        }
     }
 
     public void UpdateRift()
