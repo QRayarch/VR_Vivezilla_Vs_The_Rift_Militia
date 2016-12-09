@@ -379,7 +379,6 @@ GameObject:
   - 4: {fileID: 4000013683685180}
   - 33: {fileID: 33000010833651288}
   - 23: {fileID: 23000010493792458}
-  - 65: {fileID: 65000010468547334}
   m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
@@ -759,6 +758,7 @@ GameObject:
   - 4: {fileID: 4000012421062590}
   - 33: {fileID: 33000012283904090}
   - 23: {fileID: 23000014176512850}
+  - 136: {fileID: 136000013495540608}
   m_Layer: 12
   m_Name: Main
   m_TagString: Untagged
@@ -2956,18 +2956,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!65 &65000010468547334
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011861461366}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.99999994, z: 0.99999994}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65000011028986178
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3157,7 +3145,7 @@ MonoBehaviour:
   forward: {fileID: 4000012556067198}
   destroyBulletAfterTime: 0.35
   acc: 0.1
-  ignored: {fileID: 65000010468547334}
+  ignored: {fileID: 0}
   doScale: 0
   maxAmmo: 100
   doesUseAmmo: 1
@@ -4370,6 +4358,19 @@ CapsuleCollider:
   m_Height: 2.9
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: -0.00000047683716, z: -0.00000008940697}
+--- !u!136 &136000013495540608
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013230787514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198000013742666158
 ParticleSystem:
   m_ObjectHideFlags: 1

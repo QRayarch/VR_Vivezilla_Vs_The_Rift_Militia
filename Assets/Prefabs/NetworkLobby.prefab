@@ -59,7 +59,7 @@ MonoBehaviour:
   m_DontDestroyOnLoad: 1
   m_RunInBackground: 1
   m_ScriptCRCCheck: 1
-  m_MaxDelay: 0
+  m_MaxDelay: 0.01
   m_LogLevel: 4
   m_PlayerPrefab: {fileID: 1000010348787782, guid: 2670779286c76b44796f8b760402284c,
     type: 2}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1000012751579054, guid: 9d7e1dfd1d4a24143b14dd4e8a4985fd, type: 2}
   - {fileID: 1000012874808464, guid: 1caf03d62a1c07e41ac843087f654a85, type: 2}
-  m_CustomConfig: 0
+  m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
     m_PacketSize: 1500
@@ -96,16 +96,16 @@ MonoBehaviour:
   m_GlobalConfig:
     m_ThreadAwakeTimeout: 1
     m_ReactorModel: 0
-    m_ReactorMaximumReceivedMessages: 1024
-    m_ReactorMaximumSentMessages: 1024
+    m_ReactorMaximumReceivedMessages: 2048
+    m_ReactorMaximumSentMessages: 2048
     m_MaxPacketSize: 2000
   m_Channels: 0500000000000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
   m_PacketLossPercentage: 0
-  m_MaxBufferedPackets: 16
-  m_AllowFragmentation: 0
+  m_MaxBufferedPackets: 32
+  m_AllowFragmentation: 1
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   matchName: default

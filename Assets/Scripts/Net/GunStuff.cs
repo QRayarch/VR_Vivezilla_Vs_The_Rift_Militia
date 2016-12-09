@@ -47,10 +47,7 @@ public class GunStuff : NetworkBehaviour {
             }
             Rigidbody rb = temp.GetComponent<Rigidbody>();
             rb.AddForce((forward.forward + Random.insideUnitSphere * acc).normalized * speed);
-            if (ignored)
-            {
-                Physics.IgnoreCollision(ignored, rb.GetComponent<Collider>());
-            }
+            Physics.IgnoreCollision(ignored, rb.GetComponent<Collider>());
             NetworkServer.Spawn(rb.gameObject);
             Destroy(rb.gameObject, destroyBulletAfterTime);
 
