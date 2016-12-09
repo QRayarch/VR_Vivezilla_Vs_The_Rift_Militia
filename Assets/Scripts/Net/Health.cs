@@ -14,7 +14,7 @@ public class Health : NetworkBehaviour {
 	
     public void Damage(float a)
     {
-        if (IsDead) return;
+        //if (IsDead) return;
         health -= a;
     }
 
