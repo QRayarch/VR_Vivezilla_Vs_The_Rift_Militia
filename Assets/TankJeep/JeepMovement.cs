@@ -9,6 +9,7 @@ public class JeepMovement : MonoBehaviour {
     public float maxSpeed;
     public float turnSpeed;
     public float drift;
+    public float downForce = 100;
 
     bool onGround;
 
@@ -30,7 +31,7 @@ public class JeepMovement : MonoBehaviour {
         Vector3 target = rb.velocity;
 
 
-        target += transform.forward * accAmount * Time.deltaTime * amount;
+        target += transform.forward * accAmount * amount;
         rb.velocity = target;
 
         float t = rb.velocity.magnitude;
@@ -53,13 +54,13 @@ public class JeepMovement : MonoBehaviour {
         {
             Quaternion temp = transform.rotation;
             temp = Quaternion.LookRotation(transform.right);
-            transform.rotation = Quaternion.Slerp(transform.rotation, temp, turnSpeed * rotAmount * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, temp, turnSpeed * rotAmount);
         }
         else if (rotAmount < -0.5f)
         {
             Quaternion temp = transform.rotation;
             temp = Quaternion.LookRotation(-transform.right);
-            transform.rotation = Quaternion.Slerp(transform.rotation, temp, turnSpeed * (-rotAmount) * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, temp, turnSpeed * (-rotAmount));
         }
     }
 
@@ -67,6 +68,7 @@ public class JeepMovement : MonoBehaviour {
     void Update() {
         bool reverse = false;
         Vector3 target = rb.velocity;
+        rb.AddForce(Vector3.down * downForce * Time.deltaTime, ForceMode.Impulse);
         //if (Input.anyKey && onGround) {
         //    Vector3 target = rb.velocity;
         //    if (Input.GetKey(KeyCode.W)) {
