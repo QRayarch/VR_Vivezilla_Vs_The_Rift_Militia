@@ -176,14 +176,4 @@ public class PlayerSelector : NetworkBehaviour
     {
         return mode;
     }
-
-    //void OnCollisionEnter(Collision col)
-    //{
-    //    if (col.gameObject.CompareTag("Bullet"))
-    //    {
-    //        Debug.Log("HIT");
-    //        healthComponent.Damage(1);
-    //        Debug.Log("current heal;th: " + healthComponent.health);
-    //    }
-    //}
 }
