@@ -67,6 +67,8 @@ public class PlayerSelector : NetworkBehaviour
 
     public void DisplayMode(Mode m)
     {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
         mode = m;
         vivePlayer.SetActive(false);
         riftPlayer.SetActive(false);
